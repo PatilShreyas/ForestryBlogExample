@@ -19,12 +19,12 @@ name = "Author Homepage"
 url = "https://jonathanjanssens.com"
 weight = 40
 [params]
-description = "Just a demo site for the Casper3 theme ported to Hugo"
-facebook = "https://facebook.com"
-github = "https://github.com/jonathanjanssens"
+description = "All about AndroidDev is here!"
+facebook = "https://facebook.com/shreyaspatil99"
+github = "https://github.com/PatilShreyas"
 logo = "/images/ghost-transparent.png"
 mainSections = ["post"]
-twitter = "https://twitter.com"
+twitter = "https://twitter.com/@imShreyasPatil"
 [privacy.instagram]
 disabled = false
 simple = true
