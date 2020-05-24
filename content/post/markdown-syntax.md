@@ -17,6 +17,14 @@ title = "Markdown Syntax Guide"
 
 ### Firestore Pagination in Android — Using FirebaseUI Library 🔥
 
+        private fun initCountObserver() {
+            lifecycleScope.launch {
+                viewModel.countState.collect { value ->
+                    textview_count.text = "$value"
+                }
+            }
+        }
+
 Hi everyone, In this article, we will learn to implement _Paging support_ for _Firestore Database_ in Android. Before starting to the topic, Let’s first take a look at the available components within the Firebase.
 
 **FirebaseUI-Android** library has **FirestoreRecyclerAdapter** for easy implementation of the population of **Firestore Database**. But if the database is having a total number of children in thousands or around then it becomes a bad presentation of User Interface. Let’s take an example if you are implementing social media app and you are having around 100 Posts. If we load these Posts using _FirestoreRecyclerAdapter_ then it will load all the Posts at the time of loading. So, this will be wastage of memory or hectic for the user to scroll down with a large list or it is not good to present in front of the application user. To overcome this, we will use pagination which will load Firestore Database document items in pages.
@@ -70,12 +78,12 @@ Set it using _`RecyclerView#setLayoutManager()` ._
 
 #### Setup Configuration for PagedList
 
-First of all configure PagedList   
+First of all configure PagedList  
 _Remember that, the size you will pass to `setPageSize()` a method will load x3 items of that size at first load._ (Here, in this example we passed value 10. So, it will load 10x3 i.e. 30 items at first load).
 
 Paging Configuration
 
-Then Configure Adapter by building FirestorePagingOptions. It will generic.   
+Then Configure Adapter by building FirestorePagingOptions. It will generic.  
 _Remember one thing,_ This query should only contain `where()`and `orderBy()` clauses. Any `limit()` or pagination clauses will cause errors.
 
 Firestore Paging adapter configuration.
@@ -102,9 +110,9 @@ Error Handling in Adapter
 
 #### Retrying List (After Error / Failure)
 
-To retry items loading in RecyclerView, `retry()` method from Adapter class is used.   
-Use it as `FirestorePagingAdapter#retry()`.   
-This method should be used only after caught in Error. `retry()` should not be invoked anytime other than ERROR state.   
+To retry items loading in RecyclerView, `retry()` method from Adapter class is used.  
+Use it as `FirestorePagingAdapter#retry()`.  
+This method should be used only after caught in Error. `retry()` should not be invoked anytime other than ERROR state.  
 Whenever `LoadingState` becomes `LoadingState.ERROR` we can use `retry()`to load items in RecyclerView which were unable to load due to recent failure/error and to maintain Paging List stable.  
 See the demo for a method.
 
@@ -112,9 +120,9 @@ See the demo for a method.
 
 #### Refreshing List
 
-To refresh items in RecyclerView, `refresh()` method from Adapter class is used.   
-Use it as `FirestorePagingAdapter#refresh()`.   
-This method clears all the items in RecyclerView and reloads the data again from the beginning.   
+To refresh items in RecyclerView, `refresh()` method from Adapter class is used.  
+Use it as `FirestorePagingAdapter#refresh()`.  
+This method clears all the items in RecyclerView and reloads the data again from the beginning.  
 See the demo for a method.
 
 Refreshing the list
@@ -125,7 +133,7 @@ Finally, Set adapter to the`RecyclerView`.
 
 **Java Code** 👉`mRecyclerView.`**`setAdapter(mAdapter)`**`;`
 
-**Kotlin Code** 👉`recyclerView.`**_`adapter` _**`= `**`mAdapter`**
+**Kotlin Code** 👉`recyclerView.`**_`adapter` _**`=`**`mAdapter`**
 
 #### Lifecycle
 
