@@ -1,148 +1,165 @@
 +++
-author = "Hugo Authors"
-title = "Markdown Syntax Guide"
-date = "2019-03-11"
-description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags = [
-    "markdown",
-    "css",
-    "html",
-    "themes",
-]
-categories = [
-    "themes",
-    "syntax",
-]
-series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
+author = "Hugo Authors"
+categories = ["themes", "syntax"]
+date = 2019-03-11T00:00:00Z
+description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 feature_image = "/images/francesco-ungaro-GX81x7KTfIw-unsplash.jpg"
+series = ["Themes Guide"]
+tags = ["markdown", "css", "html", "themes"]
+title = "Markdown Syntax Guide"
+
 +++
+***
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
-<!--more-->
+![](https://cdn-images-1.medium.com/max/2560/1*DAaYWXIdhMcRJuAenAfp4g.png)
 
-## Headings
+### Firestore Pagination in Android — Using FirebaseUI Library 🔥
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+Hi everyone, In this article, we will learn to implement _Paging support_ for _Firestore Database_ in Android. Before starting to the topic, Let’s first take a look at the available components within the Firebase.
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+**FirebaseUI-Android** library has **FirestoreRecyclerAdapter** for easy implementation of the population of **Firestore Database**. But if the database is having a total number of children in thousands or around then it becomes a bad presentation of User Interface. Let’s take an example if you are implementing social media app and you are having around 100 Posts. If we load these Posts using _FirestoreRecyclerAdapter_ then it will load all the Posts at the time of loading. So, this will be wastage of memory or hectic for the user to scroll down with a large list or it is not good to present in front of the application user. To overcome this, we will use pagination which will load Firestore Database document items in pages.
 
-## Paragraph
+This API is available on [this](https://github.com/firebase/FirebaseUI-Android/tree/master/firestore) official **FirebaseUI**’s GitHub repository.
 
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+`FirestorePagingAdapter` — binds a `Query` to a `RecyclerView` by loading data in pages. Best used with large, static data sets. Real-time events are not respected by this adapter, so it will not detect new/removed items or changes to items already loaded. The `FirestorePagingAdapter` is built on top of the [Android Paging Support Library](https://developer.android.com/topic/libraries/architecture/paging.html).
 
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
+**See Output:**
 
-## Blockquotes
+![](https://cdn-images-1.medium.com/max/800/1*a3mU6pdewXtrsp3smLjllQ.gif)
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+Demo output of Implementation of Firestore Paging Adapter.
 
-#### Blockquote without attribution
+### 💻 Getting Started :
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use *Markdown syntax* within a blockquote.
+Let’s get started to the code! I will show you this demo in both the Android development languages i.e. **_Kotlin _**as well as **_Java _**side by side.
 
-#### Blockquote with attribution
+Open _Android Studio._ Create a new project OR you can simply _clone this repository:_ [https://github.com/PatilShreyas/FirestorePagingDemo-Android](https://github.com/PatilShreyas/FirestorePagingDemo-Android "https://github.com/PatilShreyas/FirestorePagingDemo-Android")
 
-> Don't communicate by sharing memory, share memory by communicating.</p>
-> — <cite>Rob Pike[^1]</cite>
+First of all, go to Firebase Console and create a new Android Project. Download configuration file i.e. **_`google-services.json` _**and place it in the **/app** directory.
 
+In this app, you are showing a paginated list of Posts. Posts will load in `RecyclerView.`
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+#### Gradle Setup
 
-## Tables
+In the app module of `build.gradle` include following dependencies.
 
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
+App module build.gradle file.
 
-   Name | Age
---------|------
-    Bob | 27
-  Alice | 23
+\`\`\`kt
 
-#### Inline Markdown within tables
+Hello
 
-| Inline&nbsp;&nbsp;&nbsp;     | Markdown&nbsp;&nbsp;&nbsp;  | In&nbsp;&nbsp;&nbsp;                | Table      |
-| ---------- | --------- | ----------------- | ---------- |
-| *italics*  | **bold**  | ~~strikethrough~~&nbsp;&nbsp;&nbsp; | `code`     |
+\`\`\`
 
-## Code Blocks
+#### App Setup
 
-#### Code block with backticks
+Make model class (Consider `Post.java`) in the app.
 
-```
-html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-```
-#### Code block indented with four spaces
+Model Class
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
+Then, create a `ViewHolder` class by inheriting `RecyclerView.ViewHolder` as below.
 
-#### Code block with Hugo's internal highlight shortcode
-{{< highlight html >}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
+ViewHolder class.
 
-## List Types
+### Initialize :
 
-#### Ordered List
+Don’t forget to set _`LayoutManager`_ to the RecyclerView.  
+Set it using _`RecyclerView#setLayoutManager()` ._
 
-1. First item
-2. Second item
-3. Third item
+#### Setup Configuration for PagedList
 
-#### Unordered List
+First of all configure PagedList   
+_Remember that, the size you will pass to `setPageSize()` a method will load x3 items of that size at first load._ (Here, in this example we passed value 10. So, it will load 10x3 i.e. 30 items at first load).
 
-* List item
-* Another item
-* And another item
+Paging Configuration
 
-#### Nested list
+Then Configure Adapter by building FirestorePagingOptions. It will generic.   
+_Remember one thing,_ This query should only contain `where()`and `orderBy()` clauses. Any `limit()` or pagination clauses will cause errors.
 
-* Item
-1. First Sub-item
-2. Second Sub-item
+Firestore Paging adapter configuration.
 
-## Other Elements — abbr, sub, sup, kbd, mark
+#### Initialize Adapter
 
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+_`FirestorePagingAdapter`_ is built on the top of Android Architecture Components - Paging Support Library. To implement, you should already have _`RecyclerView.ViewHolder`_ subclass. Here We used _`PostViewHolder`_ class.
 
-H<sub>2</sub>O
+* **Java Code 👇**
 
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+Java code for creating FirestorePagingAdapter
 
-Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+* **Kotlin Code 👇**
 
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+Kotlin code for creating FirestorePagingAdapter
 
+Any changes occur in the adapter will result in the callback _`onLoadingStateChanged()`_
+
+#### Error Handling
+
+To get to know about Errors caught during Paging, Override method `onError()` in the adapter.
+
+Error Handling in Adapter
+
+#### Retrying List (After Error / Failure)
+
+To retry items loading in RecyclerView, `retry()` method from Adapter class is used.   
+Use it as `FirestorePagingAdapter#retry()`.   
+This method should be used only after caught in Error. `retry()` should not be invoked anytime other than ERROR state.   
+Whenever `LoadingState` becomes `LoadingState.ERROR` we can use `retry()`to load items in RecyclerView which were unable to load due to recent failure/error and to maintain Paging List stable.  
+See the demo for a method.
+
+    mAdapter.retry();
+
+#### Refreshing List
+
+To refresh items in RecyclerView, `refresh()` method from Adapter class is used.   
+Use it as `FirestorePagingAdapter#refresh()`.   
+This method clears all the items in RecyclerView and reloads the data again from the beginning.   
+See the demo for a method.
+
+Refreshing the list
+
+#### Set Adapter
+
+Finally, Set adapter to the`RecyclerView`.
+
+**Java Code** 👉`mRecyclerView.`**`setAdapter(mAdapter)`**`;`
+
+**Kotlin Code** 👉`recyclerView.`**_`adapter` _**`= `**`mAdapter`**
+
+#### Lifecycle
+
+At last, To begin populating data, call `startListening()` method. `stopListening()` stops the data being loaded.
+
+To begin populating data, call the `startListening()` method. You may want to call this in your `onStart()` method. Make sure you have finished any authentication necessary to read the data before calling `startListening()` or your query will fail.
+
+Start Lifecycle of the Adapter
+
+Similarly, the `stopListening()` call freezes the data in the `RecyclerView` and prevents any future loading of data pages.
+
+Call this method when the containing Activity or Fragment stops:
+
+Stop Lifecycle of the Adapter
+
+> _Thus, we have implemented the **FirestoreRecycler Pagination**. 😃_
+
+You can see the _full app demo_ on below-listed resources with source code and step-by-step guide.
+
+Please have a clap for this article if you found it helpful!
+
+**_Thank You!_ 😃**
+
+If you need any help get in touch with me on [Facebook](https://www.facebook.com/shreyaspatil99?source=post_page---------------------------), [Twitter](https://twitter.com/imShreyasPatil?source=post_page---------------------------), [LinkedIn](https://www.linkedin.com/in/patil-shreyas?source=post_page---------------------------), [GitHub](https://github.com/PatilShreyas?source=post_page---------------------------), [Personal Site](https://patilshreyas.github.io/?source=post_page---------------------------).
+
+### Resources:
+
+[**PatilShreyas/FirestorePagingDemo-Android**  
+_Demo app for implementation of Firestore Paging library in Android app. - PatilShreyas/FirestorePagingDemo-Android_github.com](https://github.com/PatilShreyas/FirestorePagingDemo-Android "https://github.com/PatilShreyas/FirestorePagingDemo-Android")
+
+[**firebase/FirebaseUI-Android**  
+_Optimized UI components for Firebase. Contribute to firebase/FirebaseUI-Android development by creating an account on…_github.com](https://github.com/firebase/FirebaseUI-Android/tree/master/firestore "https://github.com/firebase/FirebaseUI-Android/tree/master/firestore")
+
+By [Shreyas Patil](https://medium.com/@patilshreyas) on [July 21, 2019](https://medium.com/p/1d7fe1a75704).
+
+[Canonical link](https://medium.com/@patilshreyas/firestore-pagination-in-android-using-firebaseui-library-1d7fe1a75704)
+
+Exported from [Medium](https://medium.com/) on May 22, 2020.
