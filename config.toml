@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "Shreyas Patil"
 baseURL = "https://gohugo.io/"
-copyright = "Copyright © 2008–2019, Shreyas Patil; all rights reserved."
+copyright = "Copyright © 2020, Shreyas Patil; all rights reserved."
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 languageCode = "en"
