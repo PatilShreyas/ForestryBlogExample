@@ -4,6 +4,7 @@ author = "Hugo Authors"
 categories = ["themes", "syntax"]
 date = 2019-03-11T00:00:00Z
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+draft = true
 feature_image = "/images/francesco-ungaro-GX81x7KTfIw-unsplash.jpg"
 series = ["Themes Guide"]
 tags = ["markdown", "css", "html", "themes"]
